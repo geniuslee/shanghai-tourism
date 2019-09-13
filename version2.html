@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div id="container" style="height: 100%"></div>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=buEYZ7YU3KpZh0Xw5zNDLg3pnfERGkjq"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        var data = [{
+            name: '开幕式与开幕大巡游',
+            riqi: '9月14日',
+            value: 120
+        }, {
+            name: '上海生活魔术节暨上海旅游节闭幕式',
+            riqi: '10月1日-10月7日（6日旅游节闭幕式）',
+            value: 120
+        }, {
+            name: '2019上海城市空间艺术季',
+            riqi: '9月28日-11月28日',
+            value: 90
+        }, {
+            name: '上海邮轮文化旅游节',
+            riqi: '9月22日-10月11日',
+            value: 120
+        }, {
+            name: '2019上海邮轮游艇旅游节',
+            riqi: '9月19日-10月6日',
+            value: 90
+        }, {
+            name: '2019第15届爵士上海音乐节',
+            riqi: '9月',
+            value: 90
+        }, {
+            name: '2019天地世界音乐节',
+            riqi: '9月12日-9月15日',
+            value: 90
+        }, {
+            name: '豫园中秋灯彩游园会',
+            riqi: '8月30日-9月30日',
+            value: 120
+        }, {
+            name: '第二十六届上海国际茶文化旅游节',
+            riqi: '9月5日-9月8日',
+            value: 90
+        }, {
+            name: '唐韵中秋',
+            riqi: '9月12日-9月13日',
+            value: 120
+        }, {
+            name: '海派红色之旅',
+            riqi: '9月28日',
+            value: 90
+        }, {
+            name: '2019上海咖啡生活周',
+            riqi: '9月21日-10月6日',
+            value: 90
+        }, {
+            name: '小主人欢乐游研学系列：我心中的诗与远方——读万卷书，行万里路',
+            riqi: '5月-10月',
+            value: 90
+        }, {
+            name: '上海动物园第七届蝴蝶展',
+            riqi: '9月28日-11月11日',
+            value: 90
+        }, {
+            name: '幻影忍者主题活动——吴大师的任务&小小乐玩世界活动',
+            riqi: '9月1日-9月30日',
+            value: 90
+        }, {
+            name: '海底探险家 – Underwater Mission活动',
+            riqi: '7月1日-9月30日',
+            value: 90
+        }, {
+            name: '上海大学生旅游节',
+            riqi: '9月',
+            value: 90
+        }, {
+            name: '第十九届都市森林狂欢节',
+            riqi: '9月27日-10月7日',
+            value: 120
+        }, {
+            name: '“工业文明 时尚生活”半岛1919体验季',
+            riqi: '9月14日-10月6日',
+            value: 90
+        }, {
+            name: '2019上海木文化节',
+            riqi: '9月14日-10月19日',
+            value: 90
+        }, {
+            name: '上海飞镖音乐节',
+            riqi: '9月20日-9月22日',
+            value: 90
+        }, {
+            name: '顾村公园金秋游园会',
+            riqi: '9月20日-10月25日',
+            value: 120
+        }, {
+            name: '上海南翔小笼文化展',
+            riqi: '9月28日-10月28日',
+            value: 120
+        }, {
+            name: '嘉北郊野公园2019国际稻草文化节',
+            riqi: '9月-10月',
+            value: 90
+        }, {
+            name: '第十五届“吴跟越角”枫泾水乡婚典',
+            riqi: '9月21日',
+            value: 120
+        }, {
+            name: '第二十二届旅游风筝会',
+            riqi: '10月1日-10月7日',
+            value: 120
+        }, {
+            name: '2019“纸尚奉贤”上海国际纸艺术双年展',
+            riqi: '9月10日-11月10日',
+            value: 90
+        }, {
+            name: '海湾森林慢生活集会',
+            riqi: '9月下旬-10月上旬',
+            value: 90
+        }, {
+            name: '2019世界摩托车越野锦标赛中国上海站',
+            riqi: '9月13日-9月15日',
+            value: 90
+        }, {
+            name: '2019上海欢乐谷国际魔术节暨十周年庆典',
+            riqi: '10月1日-10月7日',
+            value: 120
+        }, {
+            name: '上海旗袍文化艺术节',
+            riqi: '10月1日-10月7日',
+            value: 90
+        }, {
+            name: '新浜乡村休闲旅游节',
+            riqi: '6月10日-10月10日',
+            value: 90
+        }, {
+            name: '上海（佘山）航空嘉年华',
+            riqi: '9月21日-9月24日',
+            value: 90
+        }, {
+            name: '经典947·辰山自然生活节',
+            riqi: '10月1日-10月7日',
+            value: 90
+        }, {
+            name: '蚂蚁亲子2019长三角首届帐篷露营节 ',
+            riqi: '10月2日-10月3日',
+            value: 90
+        }, {
+            name: '朱家角水乡音乐节',
+            riqi: '9月13日-9月15日',
+            value: 120
+        }, {
+            name: '第五届崇明孔子文化节',
+            riqi: '9月28日-10月28日',
+            value: 90
+        }, {
+            name: '东滩湿地公园露营节',
+            riqi: '6月29日-9月22日',
+            value: 90
+        }, {
+            name: '崇明岛第九届骑游节',
+            riqi: '9月16日-10月31日',
+            value: 90
+        }, {
+            name: '长兴岛郊野公园旅游文化艺术节暨上海柑桔节',
+            riqi: '10月1日-11月10日',
+            value: 120
+        }, {
+            name: '2019海派农家菜大擂台',
+            riqi: '9月17日',
+            value: 90
+        }, {
+            name: '上海特色旅游食品评选活动',
+            riqi: '9月20日-9月22日',
+            value: 90
+        }, {
+            name: '东湖美食节',
+            riqi: '8月30日-9月30日',
+            value: 120
+        }, {
+            name: '马来西亚美食节',
+            riqi: '9月',
+            value: 90
+        }, {
+            name: '第二届中国（上海）国际健康旅游展',
+            riqi: '9月26日-27日',
+            value: 90
+        }, {
+            name: '地标欢乐季',
+            riqi: '9月1日-9月30日',
+            value: 90
+        }, {
+            name: '欢购乐游黄浦行',
+            riqi: '9月',
+            value: 90
+        }, {
+            name: '南京路欢乐游',
+            riqi: '9月15日-9月18日',
+            value: 90
+        }, {
+            name: '玫瑰婚典',
+            riqi: '9月19日',
+            value: 90
+        }, {
+            name: '魔都记忆——非标演艺体验季',
+            riqi: '9月10日-10月10日',
+            value: 90
+        }, {
+            name: '巨鹿路158美食夜市',
+            riqi: '9月',
+            value: 90
+        }, {
+            name: 'ART愚园系列活动',
+            riqi: '9月-10月',
+            value: 90
+        }, {
+            name: '2019上海环球港旅游文化购物节',
+            riqi: '8月29日-10月7日',
+            value: 90
+        }, {
+            name: 'M50艺术季',
+            riqi: '9月下旬',
+            value: 90
+        }, {
+            name: '四川北路欢乐节',
+            riqi: '9月17日-10月6日',
+            value: 90
+        }, {
+            name: '共享艺术季——中外玻璃艺术交流展',
+            riqi: '9月14日-10月15日',
+            value: 90
+        }, {
+            name: '上海智慧湾科艺欢乐节',
+            riqi: '9月14日-10月6日',
+            value: 90
+        }, {
+            name: '相约大师赛 骑行游闵行',
+            riqi: '9月21日',
+            value: 90
+        }, {
+            name: '虹桥天地音乐美食文化季',
+            riqi: '9月13日-10月7日',
+            value: 90
+        }, {
+            name: '锦江夜市——品美食 看灯光秀',
+            riqi: '9月16日-9月30日',
+            value: 120
+        }, {
+            name: '2019上海南滨江街头艺术节',
+            riqi: '9月12日-9月14日',
+            value: 90
+        }, {
+            name: '2019阿尔达米拉上海吉他艺术节',
+            riqi: '10月6日-10月8日',
+            value: 90
+        }, {
+            name: '安亭赛车季',
+            riqi: '9月-11月',
+            value: 90
+        }, {
+            name: '2019金山、嵊泗海鲜文化节',
+            riqi: '9月12日-10月31日',
+            value: 90
+        }, {
+            name: '2019上海淀山湖文化艺术节暨旅游购物节',
+            riqi: '9月-10月',
+            value: 120
+        }, {
+            name: ' 2019上海练塘古镇旅游文化购物节',
+            riqi: '9月20日-9月23日',
+            value: 90
+        }, {
+            name: '“秋食记”青浦美食文化体验活动',
+            riqi: '10月17日',
+            value: 90
+        }, {
+            name: '崇明生态文化旅游节巡游活动',
+            riqi: '9月19日',
+            value: 90
+        }, {
+            name: 'e游上海旅游节',
+            riqi: '9月14日-9月30日',
+            value: 90
+        }, {
+            name: '长三角文化旅游集市',
+            riqi: '9月21日-9月22日',
+            value: 120
+        }, {
+            name: '2019长三角文化旅游摄影互动展',
+            riqi: '9月-10月',
+            value: 90
+        }, {
+            name: 'ATPW2019年度峰会',
+            riqi: '9月26日-9月27日',
+            value: 90
+        }, {
+            name: '长三角生态旅游联盟论坛',
+            riqi: '9月15日',
+            value: 90
+        }, {
+            name: '“上海国际家庭日”嘉年华',
+            riqi: '9月15日',
+            value: 90
+        }, {
+            name: '第二十一届上海浦东假日酒店慕尼黑啤酒节',
+            riqi: '9月25日-9月30日',
+            value: 90
+        }, {
+            name: '豫园集团“大富贵”杯九子大赛暨上海市第五届社区游戏节',
+            riqi: '9月15日',
+            value: 90
+        }, {
+            name: '弄堂风情游',
+            riqi: '9月15日-9月20日',
+            value: 90
+        }, {
+            name: '第七届静安国际起泡酒节',
+            riqi: '9月13日-9月15日',
+            value: 90
+        }, {
+            name: '第八届市北啤酒节',
+            riqi: '9月5日-9月10日',
+            value: 90
+        }, {
+            name: '扬子江德国啤酒节',
+            riqi: '9月18日-9月28日',
+            value: 90
+        }, ];
+
+        var geoCoordMap = {
+            '开幕式与开幕大巡游': [121.480324, 31.225653],
+            '上海生活魔术节暨上海旅游节闭幕式': [121.544379, 31.221517],
+            '2019上海城市空间艺术季': [121.546023, 31.263193],
+            '上海邮轮文化旅游节': [121.489612, 31.405457],
+            '2019上海邮轮游艇旅游节': [121.497771, 31.247113],
+            '2019第15届爵士上海音乐节': [121.660469, 31.149751],
+            '2019天地世界音乐节': [121.388158, 31.320917],
+            '豫园中秋灯彩游园会': [121.491781, 31.225472],
+            '第二十六届上海国际茶文化旅游节': [121.451958, 31.224314],
+            '唐韵中秋': [121.417946, 31.165383],
+            '海派红色之旅': [121.437866, 31.199190],
+            '2019上海咖啡生活周': [121.437866, 31.199190],
+            '小主人欢乐游研学系列：我心中的诗与远方——读万卷书，行万里路': [121.424624, 31.220367],
+            '上海动物园第七届蝴蝶展': [121.362719, 31.192878],
+            '幻影忍者主题活动——吴大师的任务&小小乐玩世界活动': [121.395253, 31.223002],
+            '海底探险家 – Underwater Mission活动': [121.397027, 31.225171],
+            '上海大学生旅游节': [121.530003, 31.293311],
+            '第十九届都市森林狂欢节': [121.551984, 31.318892],
+            '“工业文明 时尚生活”半岛1919体验季': [121.386095, 31.068820],
+            '2019上海木文化节': [121.411279, 31.310215],
+            '上海飞镖音乐节': [121.496070, 31.351038],
+            '顾村公园金秋游园会': [121.368861, 31.339660],
+            '上海南翔小笼文化展': [121.308554, 31.292458],
+            '嘉北郊野公园2019国际稻草文化节': [121.184602, 31.359864],
+            '第十五届“吴跟越角”枫泾水乡婚典': [121.014390, 30.884784],
+            '第二十二届旅游风筝会': [121.527244, 30.831616],
+            '2019“纸尚奉贤”上海国际纸艺术双年展': [121.476845, 30.917407],
+            '海湾森林慢生活集会': [121.567409, 30.857286],
+            '2019世界摩托车越野锦标赛中国上海站': [121.474042, 30.917795],
+            '2019上海欢乐谷国际魔术节暨十周年庆典': [121.217530, 31.094173],
+            '上海旗袍文化艺术节': [121.312775, 31.010147],
+            '新浜乡村休闲旅游节': [121.068153, 30.933455],
+            '上海（佘山）航空嘉年华': [121.463899, 31.234810],
+            '经典947·辰山自然生活节': [121.182501, 31.075935],
+            '蚂蚁亲子2019长三角首届帐篷露营节 ': [121.502448, 31.061176],
+            '朱家角水乡音乐节': [121.054756, 31.111985],
+            '第五届崇明孔子文化节': [121.635058, 31.576855],
+            '东滩湿地公园露营节': [121.951444, 31.517046],
+            '崇明岛第九届骑游节': [121.855059, 31.294654],
+            '长兴岛郊野公园旅游文化艺术节暨上海柑桔节': [121.184602, 31.359864],
+            '2019海派农家菜大擂台': [121.123094, 31.126615],
+            '上海特色旅游食品评选活动': [121.468030, 31.221270],
+            '东湖美食节': [121.440250, 31.204822],
+            '马来西亚美食节': [121.446984, 31.189878],
+            '第二届中国（上海）国际健康旅游展': [121.561711, 31.210016],
+            '地标欢乐季': [121.500035, 31.239250],
+            '欢购乐游黄浦行': [121.469240, 31.229860],
+            '南京路欢乐游': [121.481745, 31.236511],
+            '玫瑰婚典': [121.495048, 31.252508],
+            '魔都记忆——非标演艺体验季': [121.478879, 31.228509],
+            '巨鹿路158美食夜市': [121.466289, 31.223044],
+            'ART愚园系列活动': [121.440397, 31.222217],
+            '2019上海环球港旅游文化购物节': [121.412484, 31.232237],
+            'M50艺术季': [121.448610, 31.247641],
+            '四川北路欢乐节': [121.485300, 31.251790],
+            '共享艺术季——中外玻璃艺术交流展': [121.471876, 31.343666],
+            '上海智慧湾科艺欢乐节': [121.434756, 31.343707],
+            '相约大师赛 骑行游闵行': [121.381709, 31.112813],
+            '虹桥天地音乐美食文化季': [121.315434, 31.193822],
+            '锦江夜市——品美食 看灯光秀': [121.408605, 31.139478],
+            '2019上海南滨江街头艺术节': [121.410742, 31.012863],
+            '2019阿尔达米拉上海吉他艺术节': [121.511130, 31.055560],
+            '安亭赛车季': [121.164061, 31.294312],
+            '2019金山、嵊泗海鲜文化节': [121.376304, 30.733027],
+            '2019上海淀山湖文化艺术节暨旅游购物节': [121.124178, 31.150681],
+            ' 2019上海练塘古镇旅游文化购物节': [121.045560, 31.006888],
+            '“秋食记”青浦美食文化体验活动': [121.048801, 31.114612],
+            '崇明生态文化旅游节巡游活动': [121.423951, 31.620873],
+            'e游上海旅游节': [121.713515, 31.109342],
+            '长三角文化旅游集市': [121.678535, 31.138758],
+            '2019长三角文化旅游摄影互动展': [121.678535, 31.138758],
+            'ATPW2019年度峰会': [121.560611, 31.226441],
+            '长三角生态旅游联盟论坛': [121.354183, 31.401450],
+            '“上海国际家庭日”嘉年华': [121.289200, 31.210334],
+            '第二十一届上海浦东假日酒店慕尼黑啤酒节': [121.529100, 31.223160],
+            '豫园集团“大富贵”杯九子大赛暨上海市第五届社区游戏节': [121.464049, 31.240511],
+            '弄堂风情游': [121.459384, 31.247105],
+            '第七届静安国际起泡酒节': [121.448963, 31.226062],
+            '第八届市北啤酒节': [121.435982, 31.295302],
+            '扬子江德国啤酒节': [121.405980, 31.203031]
+        };
+
+        var convertData = function(data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value),
+                        tooltip: {
+                            formatter: "<div style='width:80px;height:auto;display:block;white-space:normal;word-wrap: break-word;word-break: break-all;'>" + data[i].name + "，" + data[i].riqi + "</div>"
+                        }
+                    });
+                }
+            }
+            return res;
+        };
+
+        option = {
+            title: {
+                text: '2019上海旅游节活动分布',
+                subtext: '',
+                sublink: '',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            bmap: {
+                center: [121.4118768, 31.19257332],
+                zoom: 11,
+                roam: true,
+                mapStyle: {
+                    styleJson: [{
+                        'featureType': 'water',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'land',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#f3f3f3'
+                        }
+                    }, {
+                        'featureType': 'railway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'highway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#fdfdfd'
+                        }
+                    }, {
+                        'featureType': 'highway',
+                        'elementType': 'labels',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'geometry',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'geometry.fill',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'poi',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'green',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'subway',
+                        'elementType': 'all',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'manmade',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'local',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'arterial',
+                        'elementType': 'labels',
+                        'stylers': {
+                            'visibility': 'off'
+                        }
+                    }, {
+                        'featureType': 'boundary',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#fefefe'
+                        }
+                    }, {
+                        'featureType': 'building',
+                        'elementType': 'all',
+                        'stylers': {
+                            'color': '#d1d1d1'
+                        }
+                    }, {
+                        'featureType': 'label',
+                        'elementType': 'labels.text.fill',
+                        'stylers': {
+                            'color': '#000000'
+                        }
+                    }]
+                }
+            },
+            series: [{
+                name: 'pm2.5',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                data: convertData(data),
+                symbolSize: function(val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'purple'
+                    }
+                }
+            }, {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'bmap',
+                data: convertData(data.sort(function(a, b) {
+                    return b.value - a.value;
+                }).slice(0, 18)),
+                symbolSize: function(val) {
+                    return val[2] / 10;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'purple',
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                zlevel: 1
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    </script>
+</body>
+
+</html>
